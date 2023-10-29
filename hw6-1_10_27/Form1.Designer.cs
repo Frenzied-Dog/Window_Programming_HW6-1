@@ -23,45 +23,50 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            label1 = new Label();
-            label2 = new Label();
+            components = new System.ComponentModel.Container();
+            TimeLabel = new Label();
+            StepLabel = new Label();
             DrawBtn = new Button();
             ChooseBtn = new Button();
             Bar = new TrackBar();
             PicBox = new PictureBox();
             ShowLabel2 = new Label();
             ShowLabel1 = new Label();
+            Timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)Bar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicBox).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // TimeLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(433, 86);
-            label1.Name = "label1";
-            label1.Size = new Size(42, 15);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            TimeLabel.AutoSize = true;
+            TimeLabel.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TimeLabel.Location = new Point(410, 120);
+            TimeLabel.Name = "TimeLabel";
+            TimeLabel.Size = new Size(94, 20);
+            TimeLabel.TabIndex = 0;
+            TimeLabel.Text = "Time: 00:00";
             // 
-            // label2
+            // StepLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(438, 133);
-            label2.Name = "label2";
-            label2.Size = new Size(42, 15);
-            label2.TabIndex = 1;
-            label2.Text = "label2";
+            StepLabel.AutoSize = true;
+            StepLabel.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            StepLabel.Location = new Point(410, 180);
+            StepLabel.Name = "StepLabel";
+            StepLabel.Size = new Size(90, 20);
+            StepLabel.TabIndex = 1;
+            StepLabel.Text = "移動步數: 0";
             // 
             // DrawBtn
             // 
             DrawBtn.Font = new Font("Microsoft JhengHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            DrawBtn.Location = new Point(114, 425);
+            DrawBtn.Location = new Point(124, 425);
             DrawBtn.Name = "DrawBtn";
             DrawBtn.Size = new Size(200, 35);
             DrawBtn.TabIndex = 2;
             DrawBtn.Text = "繪製拼圖板";
             DrawBtn.UseVisualStyleBackColor = true;
+            DrawBtn.Click += DrawBtn_Click;
             // 
             // ChooseBtn
             // 
@@ -87,7 +92,8 @@
             // 
             // PicBox
             // 
-            PicBox.Location = new Point(556, 86);
+            PicBox.BackColor = SystemColors.Control;
+            PicBox.Location = new Point(555, 85);
             PicBox.Name = "PicBox";
             PicBox.Size = new Size(270, 270);
             PicBox.TabIndex = 5;
@@ -113,6 +119,11 @@
             ShowLabel1.TabIndex = 9;
             ShowLabel1.Text = "不顯示";
             // 
+            // Timer1
+            // 
+            Timer1.Interval = 1000;
+            Timer1.Tick += Timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -124,8 +135,8 @@
             Controls.Add(Bar);
             Controls.Add(ChooseBtn);
             Controls.Add(DrawBtn);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(StepLabel);
+            Controls.Add(TimeLabel);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)Bar).EndInit();
@@ -135,13 +146,14 @@
         }
 
         #endregion
-        private Label label1;
-        private Label label2;
+        private Label TimeLabel;
+        private Label StepLabel;
         private Button DrawBtn;
         private Button ChooseBtn;
         private TrackBar Bar;
         private PictureBox PicBox;
         private Label ShowLabel2;
         private Label ShowLabel1;
+        private System.Windows.Forms.Timer Timer1;
     }
 }
